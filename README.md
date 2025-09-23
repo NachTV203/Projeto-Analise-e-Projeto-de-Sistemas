@@ -10,7 +10,7 @@
 **DOCUMENTAÇÃO DE NEGÓCIOS, REQUISITOS E MODELAGEM UML**
 
 **Alunos:**  
-- Nome Completo - RGM  
+- Beatriz Nevis Miranda - RGM 37227581
 - Nome Completo - RGM  
 - Nome Completo - RGM  
 - Rafael Junio Azevedo Souza - RGM 38595435 
