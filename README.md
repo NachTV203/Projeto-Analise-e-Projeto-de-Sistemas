@@ -13,7 +13,7 @@
 - Nome Completo - RGM  
 - Nome Completo - RGM  
 - Nome Completo - RGM  
-- Nome Completo - RGM  
+- Rafael Junio Azevedo Souza - RGM 38595435 
 
 **Professor:** Gabriel de Oliveira Alves  
 
