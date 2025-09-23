@@ -13,7 +13,8 @@
 - Beatriz Nevis Miranda - RGM 37227581
 - Nome Completo - RGM  
 - Nome Completo - RGM  
-- Rafael Junio Azevedo Souza - RGM 38595435 
+- Rafael Junio Azevedo Souza - RGM 38595435
+- Victor Alves Moreira - RGM 30159067
 
 **Professor:** Gabriel de Oliveira Alves  
 
