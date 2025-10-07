@@ -92,9 +92,31 @@ Bibliotecas Adicionais: reportlab (para geração de PDF), openpyxl (para export
 
 ## 5. Requisitos  
 
-### 5.1 Requisitos Funcionais  
-Exemplo:  
-- **RF01 – Cadastro de Cliente**: O sistema deve permitir o cadastro de clientes, incluindo nome completo, CPF, endereço, telefone e e-mail.  
+### 5.1 Requisitos Funcionais 
+
+RF01 – Autenticação de Usuários: O sistema deve permitir que usuários acessem o sistema através de um nome de usuário e senha.
+RF02 – Controle de Nível de Acesso: O sistema deve diferenciar usuários "Administradores" de usuários "Padrão", limitando o acesso a certas funcionalidades (como a aba de configurações).
+RF03 – Gerenciar Itens de Estoque: O sistema deve permitir cadastrar, consultar, editar e excluir itens do estoque. Os dados mínimos são: nome, quantidade, valor unitário e valor total.
+RF04 – Gerenciar Clientes: O sistema deve permitir cadastrar, consultar, editar e excluir clientes. Os dados mínimos são: nome/razão social, endereço, CNPJ/CPF e contato.
+RF05 – Criar Orçamento: O sistema deve permitir que um usuário selecione itens do estoque e suas quantidades para compor um orçamento.
+RF06 – Gerar Contrato: O sistema deve permitir a geração de um contrato a partir de um orçamento, associando-o a um cliente e adicionando informações do evento (nome, local, datas).
+RF07 – Consultar Contratos: O sistema deve permitir a visualização e busca de contratos já gerados.
+RF08 – Gerenciar Usuários (Admin): O sistema deve permitir que um usuário administrador crie, edite e remova outros usuários (funcionalidade implícita pela existência do campo is_admin no banco de dados de usuários).
+RF09 – Exclusão de Contrato em Cascata: Ao excluir um contrato, o sistema deve excluir automaticamente todos os itens associados a ele.
+5.2 Requisitos Não Funcionais
+RNF01 – Desempenho: As consultas ao banco de dados e o carregamento das listas (estoque, clientes) devem ser concluídos em até 3 segundos.
+RNF02 – Segurança: As senhas dos usuários devem ser armazenadas no banco de dados de forma criptografada (hash).
+RNF03 – Usabilidade: A interface do sistema deve ser intuitiva, seguindo os padrões de aplicações de desktop, para que um usuário com conhecimentos básicos de informática possa operá-lo.
+RNF04 – Confiabilidade: O sistema deve utilizar um banco de dados persistente (SQLite) para garantir que os dados não sejam perdidos ao fechar a aplicação.
+RNF05 – Portabilidade: A aplicação deve ser executável em sistemas operacionais Windows (versão 7 ou superior).
+5.3 Regras de Negócio
+RN01: Um item de estoque deve possuir um nome único no sistema.
+RN02: Um cliente deve possuir um nome/razão social único no sistema.
+RN03: Um usuário deve possuir um nome de usuário (username) único no sistema.
+RN04: O sistema deve garantir a existência de pelo menos um usuário administrador. Caso nenhum exista, um usuário "admin" padrão deve ser criado.
+RN05: Um contrato só pode ser gerado se estiver associado a um cliente cadastrado.
+RN06: O valor total de um item de estoque é calculado automaticamente (quantidade * valor unitário).
+RN07: Um contrato possui um status que pode ser 'Gerado', 'Assinado' ou 'Cancelado'.
 
 ### 5.2 Requisitos Não Funcionais  
 Exemplo:  
