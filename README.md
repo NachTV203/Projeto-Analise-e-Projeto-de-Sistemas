@@ -11,8 +11,8 @@
 
 **Alunos:**  
 - Beatriz Nevis Miranda - RGM 37227581
-- Nome Completo - RGM  
-- Nome Completo - RGM  
+- Paulo Andre Gemmal Fonseca - RGM 38030144
+- Mauricio Gabriel Gemmal Fonseca - RGM 38031183
 - Rafael Junio Azevedo Souza - RGM 38595435
 - Victor Alves Moreira - RGM 30159067
 
