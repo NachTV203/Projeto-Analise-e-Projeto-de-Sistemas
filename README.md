@@ -63,11 +63,13 @@ O Sistema de Estoque para Eventos é importante porque resolve esses problemas a
 ### 3.1 Objetivo Geral  
 Desenvolver a documentação de negócios, requisitos e modelagem UML de um sistema de gestão de estoque para eventos, a fim de criar uma base clara e estruturada para seu desenvolvimento e implementação.  
 
-### 3.2 Objetivos Específicos  
+## 3.2 Objetivos Específicos  
+
 Identificar e descrever os requisitos funcionais e não funcionais do sistema EletroTec.
 Elaborar os principais diagramas UML para representar as diferentes visões do sistema (casos de uso, classes, sequência, etc.).
 Produzir uma documentação de negócios e requisitos que sirva como guia para a equipe de desenvolvimento.
 Aplicar metodologias de elicitação e análise de requisitos para garantir que o escopo do sistema atenda às necessidades do negócio.
+
 ---
 
 ## 4. Descrição do Sistema Proposto
