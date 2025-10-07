@@ -126,10 +126,13 @@ RNF04 – Confiabilidade: O sistema deve utilizar um banco de dados persistente 
 RNF05 – Portabilidade: A aplicação deve ser executável em sistemas operacionais Windows (versão 7 ou superior).  
 
 ### 5.3 Regras de Negócio  
-Exemplo:  
-- O cliente só pode ser cadastrado se informar CPF válido e não estiver previamente registrado no sistema.  
-
----
+RN01: Um item de estoque deve possuir um nome único no sistema.
+RN02: Um cliente deve possuir um nome/razão social único no sistema.
+RN03: Um usuário deve possuir um nome de usuário (username) único no sistema.
+RN04: O sistema deve garantir a existência de pelo menos um usuário administrador. Caso nenhum exista, um usuário "admin" padrão deve ser criado.
+RN05: Um contrato só pode ser gerado se estiver associado a um cliente cadastrado.
+RN06: O valor total de um item de estoque é calculado automaticamente (quantidade * valor unitário).
+RN07: Um contrato possui um status que pode ser 'Gerado', 'Assinado' ou 'Cancelado'.
 
 ## 6. Diagramas UML  
 
