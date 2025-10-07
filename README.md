@@ -82,7 +82,7 @@ O sistema proposto é uma aplicação de desktop desenvolvida em Python com a bi
 
 Público-alvo: O sistema destina-se aos funcionários de empresas de locação de materiais para eventos, abrangendo desde os gestores de estoque até a equipe comercial responsável pela elaboração de orçamentos e contratos.
 
-Principais Funcionalidades:
+### Principais Funcionalidades:
 
 Controle de Acesso: Sistema de login para autenticação de usuários, com diferenciação entre administradores e usuários comuns.
 
@@ -96,7 +96,7 @@ Geração de Contratos: Automatização da criação de contratos formais a part
 
 Consulta e Relatórios: Visualização de contratos gerados e potencial para exportação de dados em formatos como PDF e Excel.
 
-Tecnologias Envolvidas:
+### Tecnologias Envolvidas:
 
 Linguagem: Python 3
 
@@ -196,9 +196,10 @@ Resumo e imagem do diagrama.
 
 | Integrantes       | Discussões | Produção escrita | Diagramas UML | Organização | Apresentação |
 |-------------------|------------|------------------|---------------|-------------|--------------|
-| Nome Completo 01  |            |                  |               |             |              |
+| Beatriz Nevis     |            |                  |               |             |              |
 | Nome Completo 02  |            |                  |               |             |              |
 | Nome Completo 03  |            |                  |               |             |              |
-| Nome Completo 04  |            |                  |               |             |              |
+| Rafael Junio      |            |                  |               |             |              |
+| Victor Alves      |            |                  |               |             |              |
 
 ---
