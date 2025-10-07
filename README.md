@@ -1,12 +1,12 @@
 # UDF - CENTRO UNIVERSITÁRIO DO DISTRITO FEDERAL
 
-## NOME DO CURSO  
+## Ciência da Computação 
 
 **DISCIPLINA – ANÁLISE E PROJETO DE SISTEMAS**  
 
 ---
 
-# SISTEMA XYZ  
+# SISTEMA DE ESTOQUE PARA EVENTOS  
 **DOCUMENTAÇÃO DE NEGÓCIOS, REQUISITOS E MODELAGEM UML**
 
 **Alunos:**  
@@ -18,7 +18,7 @@
 
 **Professor:** Gabriel de Oliveira Alves  
 
-Brasília – 2025.2  
+Brasília – 2025.10  
 
 ---
 
