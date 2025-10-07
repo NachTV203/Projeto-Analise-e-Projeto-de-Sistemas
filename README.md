@@ -183,12 +183,18 @@ Resumo e imagem do diagrama.
 ---
 
 ## 7. Conclusão
-*Resumo sobre a experiência: aprendizados, dificuldades e contribuições da modelagem.*  
+A elaboração desta documentação proporcionou uma compreensão aprofundada da estrutura e dos requisitos do Sistema de Estoque para Eventos. O processo de análise do código existente para extrair os requisitos funcionais, não funcionais e regras de negócio foi um exercício prático de engenharia reversa e análise de sistemas.
+
+A modelagem UML foi uma ferramenta crucial para traduzir conceitos abstratos e linhas de código em representações visuais claras e padronizadas. Os diagramas de Caso de Uso e Classe ajudaram a definir o escopo e a estrutura, enquanto os diagramas de Sequência e Atividades permitiram detalhar os fluxos de interação e processos. As principais dificuldades encontradas foram a interpretação de múltiplos arquivos de código, alguns aparentemente não relacionados ao projeto principal, e a necessidade de inferir requisitos não explícitos.
+
+Concluímos que a prática da documentação e modelagem é indispensável para o sucesso de um projeto de software, pois alinha a visão de todos os envolvidos, reduz ambiguidades e cria um guia robusto que orienta o desenvolvimento e a manutenção futura do sistema.  
 
 ---
 
 ## 8. Referências
-*Inserir as referências em formato ABNT.*  
+BOOCH, G.; RUMBAUGH, J.; JACOBSON, I. UML: guia do usuário. 2. ed. Rio de Janeiro: Campus, 2006.
+PRESSMAN, R. S.; MAXIM, B. R. Engenharia de Software: Uma Abordagem Profissional. 8. ed. Porto Alegre: AMGH, 2016.
+SOMMERVILLE, I. Engenharia de Software. 10. ed. São Paulo: Pearson Education do Brasil, 2019.
 
 ---
 
