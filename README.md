@@ -203,8 +203,8 @@ SOMMERVILLE, I. Engenharia de Software. 10. ed. São Paulo: Pearson Education do
 | Integrantes       | Discussões | Produção escrita | Diagramas UML | Organização | Apresentação |
 |-------------------|------------|------------------|---------------|-------------|--------------|
 | Beatriz Nevis     |            |                  |               |             |              |
-| Nome Completo 02  |            |                  |               |             |              |
-| Nome Completo 03  |            |                  |               |             |              |
+| Paulo Andre       |            |                  |               |             |              |
+| Mauricio Gabriel  |            |                  |               |             |              |
 | Rafael Junio      |            |                  |               |             |              |
 | Victor Alves      |            |                  |               |             |              |
 
