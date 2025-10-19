@@ -177,6 +177,51 @@ Resumo e imagem do diagrama.
 ### 6.6 Diagrama de Componentes  
 Resumo e imagem do diagrama.  
 
+#Sistema de Gestão — Estrutura de Componentes#
+
+Este projeto é uma aplicação desktop desenvolvida em Python, utilizando Tkinter e TtkBootstrap para interface gráfica e SQLite como banco de dados.
+O sistema gerencia estoque, contratos, clientes e finanças empresariais, sendo modular e fácil de manter.
+
+📁 Estrutura Principal
+
+main.py → inicializa a aplicação e abre a tela de login.
+
+login.py (LoginScreen) → autenticação de usuários e acesso ao sistema.
+
+app_main.py (EstoqueApp) → núcleo principal com interface e controle das abas.
+
+database.py → conexão e criação do banco SQLite.
+
+utils.py → funções auxiliares (ícones, locale, formatação e dependências).
+
+tabs/ → abas modulares: estoque, clientes, orçamentos, contratos, relatórios e configurações.
+
+financeiro.py (FinanceiroApp) → módulo financeiro independente com gráficos e relatórios.
+
+setup.py (cx_Freeze) → empacota o projeto em um executável .exe para Windows.
+
+⚙️ Tecnologias Utilizadas
+
+Python 3
+
+Tkinter / TtkBootstrap
+
+SQLite3
+
+Pandas
+
+OpenPyXL
+
+ReportLab
+
+Matplotlib
+
+cx_Freeze
+
+🧠 Diagrama de Componentes
+
+O diagrama .drawio incluído no projeto representa as dependências entre módulos e suas interações com bibliotecas externas.
+
 ### 6.7 Diagrama de Objetos  
 Resumo e imagem do diagrama.  
 
