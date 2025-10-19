@@ -222,6 +222,9 @@ O sistema gerencia estoque, contratos, clientes e finanças empresariais, sendo 
 
 O diagrama .drawio/xml incluído no projeto representa as dependências entre módulos e suas interações com bibliotecas externas. Um diagrama de componentes é uma representação visual da estrutura física de um sistema, mostrando seus componentes (como arquivos, bibliotecas, bancos de dados, etc.), suas interfaces e as dependências entre eles.
 
+<img width="910" height="722" alt="Captura de tela 2025-10-19 153501" src="https://github.com/user-attachments/assets/b5be4939-f26c-4f57-9654-349ee053ffcc" />
+
+
 ### 6.7 Diagrama de Objetos  
 Resumo e imagem do diagrama.  
 
