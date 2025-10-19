@@ -184,39 +184,39 @@ O sistema gerencia estoque, contratos, clientes e finanças empresariais, sendo 
 
 📁 Estrutura Principal
 
-main.py → inicializa a aplicação e abre a tela de login.
+- main.py → inicializa a aplicação e abre a tela de login.
 
-login.py (LoginScreen) → autenticação de usuários e acesso ao sistema.
+- login.py (LoginScreen) → autenticação de usuários e acesso ao sistema.
 
-app_main.py (EstoqueApp) → núcleo principal com interface e controle das abas.
+- app_main.py (EstoqueApp) → núcleo principal com interface e controle das abas.
 
-database.py → conexão e criação do banco SQLite.
+- database.py → conexão e criação do banco SQLite.
 
-utils.py → funções auxiliares (ícones, locale, formatação e dependências).
+- utils.py → funções auxiliares (ícones, locale, formatação e dependências).
 
-tabs/ → abas modulares: estoque, clientes, orçamentos, contratos, relatórios e configurações.
+- tabs/ → abas modulares: estoque, clientes, orçamentos, contratos, relatórios e configurações.
 
-financeiro.py (FinanceiroApp) → módulo financeiro independente com gráficos e relatórios.
+- financeiro.py (FinanceiroApp) → módulo financeiro independente com gráficos e relatórios.
 
-setup.py (cx_Freeze) → empacota o projeto em um executável .exe para Windows.
+- setup.py (cx_Freeze) → empacota o projeto em um executável .exe para Windows.
 
 ⚙️ Tecnologias Utilizadas
 
-Python 3
+- Python 3
 
-Tkinter / TtkBootstrap
+- Tkinter / TtkBootstrap
 
-SQLite3
+- SQLite3
 
-Pandas
+- Pandas
 
-OpenPyXL
+- OpenPyXL
 
-ReportLab
+- ReportLab
 
-Matplotlib
+- Matplotlib
 
-cx_Freeze
+- cx_Freeze
 
 🧠 Diagrama de Componentes
 
