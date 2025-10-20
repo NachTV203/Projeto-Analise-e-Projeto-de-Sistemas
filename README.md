@@ -171,38 +171,33 @@ Resumo e imagem do diagrama.
 ### 6.4 Diagrama de Sequência  
 <img width="2076" height="1155" alt="mermaid-diagram-2025-10-20-164911" src="https://github.com/user-attachments/assets/7ee78526-4084-46d7-af25-896f4c1c13d9" />
 
-## 📘 Resumo do Diagrama de Sequência UML
+O diagrama de sequência UML representa o fluxo completo de execução dos dois sistemas integrados do projeto, desde a inicialização até o encerramento da aplicação. Ele descreve a interação entre componentes, módulos e bancos de dados, evidenciando as etapas de autenticação, inicialização, operação, sincronização e finalização do sistema.
 
-O diagrama ilustra o **fluxo completo de execução** dos dois sistemas integrados, desde a inicialização até o encerramento da aplicação.
+O processo inicia na **fase de autenticação**, quando o usuário executa o arquivo `main.py`, responsável por criar a tela de login (`LoginScreen`). Nesse momento, o sistema se conecta ao banco de dados de usuários (`users.db`) e verifica a existência do administrador padrão, criando-o automaticamente caso não exista. O usuário insere suas credenciais, que são validadas por meio de hash SHA256. Em caso de sucesso, a conexão com o banco de usuários é encerrada e as informações do usuário autenticado são repassadas para a aplicação principal.
 
-### **Fase 1: Autenticação (Login)**
-O processo inicia quando o usuário executa `main.py`, que cria a tela de login (`LoginScreen`). O sistema conecta ao banco de dados de usuários (`users.db`), verifica a existência do administrador padrão e, caso não exista, cria-o automaticamente. O usuário insere suas credenciais, que são validadas através de hash SHA256. Se a autenticação for bem-sucedida, a conexão com o banco de usuários é fechada e as informações do usuário logado são passadas para a aplicação principal.
+Na **fase de inicialização do sistema de estoque**, a aplicação principal (`EstoqueApp`) é instanciada, conectando-se ao banco de dados principal (`estoque_orcamento.db`). Em seguida, cria as tabelas necessárias e inicializa todas as abas do sistema — Estoque, Clientes, Orçamento, Contratos, Relatórios e Configurações —, carregando e exibindo os dados iniciais de cada módulo diretamente na interface.
 
-### **Fase 2: Inicialização do Sistema de Estoque**
-Após login válido, a aplicação principal (`EstoqueApp`) é instanciada. Ela conecta ao banco de dados principal (`estoque_orcamento.db`), cria as tabelas necessárias e inicializa todas as abas do sistema (Estoque, Clientes, Orçamento, Contratos, Relatórios e Configurações). Em seguida, carrega os dados iniciais de cada módulo, populando as interfaces com informações do banco de dados.
+Durante a **fase de operações de negócio**, o diagrama destaca três fluxos principais. No fluxo de **gestão de estoque**, o usuário pode adicionar ou editar itens, que são imediatamente salvos no banco de dados e atualizados na interface. No fluxo de **geração de contratos**, o usuário monta um orçamento, adiciona itens a uma lista temporária (`orcamento_atual[]`) e, ao finalizar, o contrato é salvo no banco e exportado em formato PDF. Já no fluxo de **controle financeiro**, o módulo `FinanceiroApp` permite criar eventos, registrar dívidas e marcar pagamentos. Quando uma dívida é quitada, o sistema lança automaticamente uma despesa no fluxo de caixa e atualiza o relatório Excel correspondente.
 
-### **Fase 3: Operações de Negócio**
-Durante a operação normal, o diagrama mostra três fluxos principais:
+A **fase de sincronização e relatórios** ocorre de forma contínua, com todas as operações financeiras gerando atualizações automáticas no dashboard. O sistema recalcula receitas, despesas e saldos, além de regenerar gráficos e atualizar os relatórios Excel em tempo real. Esses relatórios possuem formatação profissional, com cores condicionais e totalizadores que garantem uma visão financeira completa.
 
-- **Gestão de Estoque:** O usuário adiciona/edita itens, que são persistidos no banco de dados e refletidos imediatamente na interface através da atualização da Treeview.
-
-- **Geração de Contratos:** O usuário monta um orçamento adicionando itens à lista temporária (`orcamento_atual[]`), depois gera o contrato que é salvo no banco de dados e exportado como PDF para o usuário.
-
-- **Controle Financeiro:** No sistema financeiro (`FinanceiroApp`), o usuário cria eventos, adiciona dívidas e marca pagamentos. Quando uma dívida é marcada como "Paga", o sistema automaticamente registra uma despesa no fluxo de caixa e atualiza o relatório Excel correspondente.
-
-### **Fase 4: Sincronização e Relatórios**
-Todas as operações financeiras disparam atualizações automáticas do dashboard, recalculando receitas, despesas, saldos e regenerando gráficos. Os relatórios Excel são atualizados em tempo real com formatação profissional, incluindo cores condicionais e totalizadores.
-
-### **Fase 5: Encerramento**
-Ao fechar a aplicação, o sistema solicita confirmação do usuário, fecha adequadamente todas as conexões com os bancos de dados e destroi as janelas de forma ordenada, garantindo a integridade dos dados persistidos.
-
----
-
-**Essência do Diagrama:** Mostra um sistema robusto com separação clara entre autenticação, lógica de negócio e persistência de dados, onde cada operação do usuário desencadeia uma sequência de interações coordenadas entre componentes, mantendo consistência entre interface, banco de dados e arquivos de relatório.
+Por fim, na **fase de encerramento**, o sistema solicita confirmação do usuário antes de fechar, encerrando todas as conexões com os bancos de dados e destruindo as janelas de forma controlada. Esse processo assegura a integridade dos dados e garante o desligamento seguro da aplicação. O diagrama, portanto, evidencia um fluxo ordenado e integrado entre autenticação, operações de negócio e persistência de dados, refletindo a robustez e a coerência do funcionamento do sistema.
 
 
 ### 6.5 Diagrama de Estado  
-Resumo e imagem do diagrama.  
+ <img width="2076" height="1155" alt="mermaid-diagram-2025-10-20-172154" src="https://github.com/user-attachments/assets/be281312-e18b-4e8b-8ad2-cf1bbf69da08" />
+
+ O diagrama de estados UML do Sistema EletroTec representa o fluxo de navegação e as transições entre os diferentes estados de uma aplicação de controle de estoque e gestão de contratos desenvolvida em Python com Tkinter. O sistema inicia no estado de **Login**, onde o usuário deve se autenticar; em caso de sucesso, é direcionado ao **Dashboard**, ponto central que conecta todos os módulos e para o qual o usuário sempre retorna após concluir qualquer operação. Caso o usuário escolha “Sair”, o sistema é encerrado sem acesso.
+
+O **Dashboard** atua como o núcleo do sistema, possibilitando o acesso aos cinco módulos principais: **Estoque**, **Clientes**, **Orçamento**, **Contratos** e **Relatórios**. No módulo **Estoque**, é possível adicionar, editar ou excluir itens do inventário, sempre com a opção de salvar ou cancelar alterações, retornando à listagem principal. O módulo **Clientes** possui estrutura semelhante, permitindo cadastrar, atualizar ou remover clientes, também seguindo o padrão de operações CRUD (Create, Read, Update, Delete).
+
+O módulo **Orçamento** é o único com fluxo linear e obrigatório, representando o processo de negócio de geração de contratos. O usuário deve selecionar um cliente, preencher os dados do evento, adicionar itens do estoque e, por fim, gerar o contrato, que o direciona automaticamente ao módulo **Contratos**. Neste último, é possível visualizar contratos existentes, alterar seu status (Gerado, Assinado ou Cancelado) e exportá-los em formato PDF, sempre retornando à listagem após cada ação. Já o módulo **Relatórios** é o mais simples, permitindo gerar relatórios de estoque ou contratos e retornando ao estado inicial do módulo após a conclusão.
+
+A navegação é centralizada no Dashboard, com transições bidirecionais entre ele e os demais módulos — permitindo tanto o acesso quanto o retorno. O encerramento completo do sistema ocorre apenas a partir do Dashboard, garantindo que o usuário passe pelo estado central antes de sair. O diagrama destaca ainda a aplicação do padrão CRUD nos módulos de Estoque e Clientes e o fluxo de processo de negócio no módulo Orçamento.
+
+Entre os principais benefícios do diagrama estão a **clareza visual**, que facilita a compreensão do comportamento do sistema; a **manutenibilidade**, útil para desenvolvedores; a **documentação**, que serve como referência técnica; a **validação**, permitindo identificar lacunas nas transições; e a **comunicação**, auxiliando na explicação do funcionamento para stakeholders. Em síntese, o diagrama de estados do Sistema EletroTec reflete uma aplicação bem estruturada, com navegação intuitiva, operações de gestão de dados padronizadas e um fluxo coeso para a geração de contratos. A centralização no Dashboard reforça a consistência da experiência do usuário e facilita futuras expansões do sistema.
+
+
 
 ### 6.6 Diagrama de Componentes    
 
