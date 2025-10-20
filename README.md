@@ -174,8 +174,7 @@ Resumo e imagem do diagrama.
 ### 6.5 Diagrama de Estado  
 Resumo e imagem do diagrama.  
 
-### 6.6 Diagrama de Componentes  
-Resumo e imagem do diagrama.  
+### 6.6 Diagrama de Componentes    
 
 #Sistema de Gestão — Estrutura de Componentes#
 
@@ -226,7 +225,77 @@ O diagrama .drawio/xml incluído no projeto representa as dependências entre m�
 
 
 ### 6.7 Diagrama de Objetos  
-Resumo e imagem do diagrama.  
+ 
+## 🏗️ Análise do Diagrama do Código
+
+O diagrama representa **dois sistemas empresariais integrados** desenvolvidos em Python:
+
+### **1️⃣ Sistema de Estoque e Orçamento (EletroTec)**
+
+#### **Componentes Principais:**
+
+**🔐 LoginScreen (Autenticação)**
+- Gerencia login de usuários com senha criptografada (SHA-256)
+- Conecta ao banco `users.db`
+- Após validação, cria a aplicação principal
+- Possui usuário admin padrão (senha: 10092019)
+
+**🖥️ EstoqueApp (Aplicação Principal)**
+- Classe central que gerencia toda a interface
+- Controla 6 abas diferentes através do componente Notebook
+- Mantém conexão com banco de dados SQLite
+- Armazena estado da aplicação (orçamento atual, itens selecionados)
+- Implementa sistema de checkboxes para seleção múltipla
+
+**📑 Sistema de Abas (Tabs):**
+1. **EstoqueTab**: Gerencia inventário de produtos
+2. **ClientesTab**: Cadastro e gestão de clientes
+3. **OrcamentoTab**: Criação de orçamentos/cotações
+4. **ContratosTab**: Geração e acompanhamento de contratos
+5. **RelatoriosTab**: Relatórios diversos do sistema
+6. **ConfigTab**: Configurações (acesso admin)
+
+**🛠️ Módulos Auxiliares:**
+- **DatabaseModule**: Funções para manipulação do banco de dados
+- **UtilsModule**: Utilidades gerais (formatação, ícones, validações)
+
+---
+
+### **2️⃣ Sistema Financeiro Empresarial**
+
+#### **Componentes Principais:**
+
+**💰 FinanceiroApp (Dashboard Financeiro)**
+- Interface principal com gráficos interativos usando Matplotlib
+- Gerencia receitas e despesas
+- Usa Pandas DataFrame para análise de dados
+- Exporta relatórios formatados para Excel (openpyxl)
+- Filtros por ano e mês
+
+**📊 Janelas Secundárias:**
+
+1. **EventosManagerWindow**
+   - Gerencia eventos empresariais
+   - Lista todos os eventos cadastrados
+   - Permite criar, editar e excluir eventos
+
+2. **DividendosWindow**
+   - Controla dívidas/dividendos de cada evento
+   - Adiciona credores e valores
+   - Marca status: "Em Aguardo" ou "Pago"
+   - **INTEGRAÇÃO**: Ao marcar como "Pago", registra automaticamente uma despesa no fluxo de caixa
+
+3. **RelatorioMensalWindow**
+   - Gera relatórios anuais com resumo mensal
+   - Exibe receitas, despesas e saldo por mês
+   - Usa código de cores (verde=lucro, vermelho=prejuízo)
+
+4. **TransacaoDialog**
+   - Modal para adicionar receitas ou despesas
+   - Campos: Data, Descrição/Categoria, Valor
+   - Callback para atualizar o sistema após salvar
+
+<img width="1919" height="851" alt="Captura de tela 2025-10-20 132309" src="https://github.com/user-attachments/assets/426a59be-491f-45d0-ba1d-8838928fa684" />
 
 ---
 
