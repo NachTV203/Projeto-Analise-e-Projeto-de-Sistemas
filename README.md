@@ -169,7 +169,37 @@ Resumo e imagem do diagrama.
 Resumo e imagem do diagrama.  
 
 ### 6.4 Diagrama de Sequência  
-Resumo e imagem do diagrama.  
+<img width="2076" height="1155" alt="mermaid-diagram-2025-10-20-164911" src="https://github.com/user-attachments/assets/7ee78526-4084-46d7-af25-896f4c1c13d9" />
+
+## 📘 Resumo do Diagrama de Sequência UML
+
+O diagrama ilustra o **fluxo completo de execução** dos dois sistemas integrados, desde a inicialização até o encerramento da aplicação.
+
+### **Fase 1: Autenticação (Login)**
+O processo inicia quando o usuário executa `main.py`, que cria a tela de login (`LoginScreen`). O sistema conecta ao banco de dados de usuários (`users.db`), verifica a existência do administrador padrão e, caso não exista, cria-o automaticamente. O usuário insere suas credenciais, que são validadas através de hash SHA256. Se a autenticação for bem-sucedida, a conexão com o banco de usuários é fechada e as informações do usuário logado são passadas para a aplicação principal.
+
+### **Fase 2: Inicialização do Sistema de Estoque**
+Após login válido, a aplicação principal (`EstoqueApp`) é instanciada. Ela conecta ao banco de dados principal (`estoque_orcamento.db`), cria as tabelas necessárias e inicializa todas as abas do sistema (Estoque, Clientes, Orçamento, Contratos, Relatórios e Configurações). Em seguida, carrega os dados iniciais de cada módulo, populando as interfaces com informações do banco de dados.
+
+### **Fase 3: Operações de Negócio**
+Durante a operação normal, o diagrama mostra três fluxos principais:
+
+- **Gestão de Estoque:** O usuário adiciona/edita itens, que são persistidos no banco de dados e refletidos imediatamente na interface através da atualização da Treeview.
+
+- **Geração de Contratos:** O usuário monta um orçamento adicionando itens à lista temporária (`orcamento_atual[]`), depois gera o contrato que é salvo no banco de dados e exportado como PDF para o usuário.
+
+- **Controle Financeiro:** No sistema financeiro (`FinanceiroApp`), o usuário cria eventos, adiciona dívidas e marca pagamentos. Quando uma dívida é marcada como "Paga", o sistema automaticamente registra uma despesa no fluxo de caixa e atualiza o relatório Excel correspondente.
+
+### **Fase 4: Sincronização e Relatórios**
+Todas as operações financeiras disparam atualizações automáticas do dashboard, recalculando receitas, despesas, saldos e regenerando gráficos. Os relatórios Excel são atualizados em tempo real com formatação profissional, incluindo cores condicionais e totalizadores.
+
+### **Fase 5: Encerramento**
+Ao fechar a aplicação, o sistema solicita confirmação do usuário, fecha adequadamente todas as conexões com os bancos de dados e destroi as janelas de forma ordenada, garantindo a integridade dos dados persistidos.
+
+---
+
+**Essência do Diagrama:** Mostra um sistema robusto com separação clara entre autenticação, lógica de negócio e persistência de dados, onde cada operação do usuário desencadeia uma sequência de interações coordenadas entre componentes, mantendo consistência entre interface, banco de dados e arquivos de relatório.
+
 
 ### 6.5 Diagrama de Estado  
 Resumo e imagem do diagrama.  
