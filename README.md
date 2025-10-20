@@ -295,7 +295,7 @@ O diagrama representa **dois sistemas empresariais integrados** desenvolvidos em
    - Campos: Data, Descrição/Categoria, Valor
    - Callback para atualizar o sistema após salvar
 
-<img width="1919" height="851" alt="Captura de tela 2025-10-20 132309" src="https://github.com/user-attachments/assets/426a59be-491f-45d0-ba1d-8838928fa684" />
+<img width="7516" height="2756" alt="Untitled diagram-2025-10-20-164707" src="https://github.com/user-attachments/assets/d0e646bc-9f5f-4658-8147-b43e2c334e10" />
 
 ---
 
