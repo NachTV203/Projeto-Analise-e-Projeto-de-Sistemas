@@ -169,19 +169,25 @@ Resumo e imagem do diagrama.
 Resumo e imagem do diagrama.  
 
 ### 6.4 Diagrama de Sequência  
-<img width="2076" height="1155" alt="mermaid-diagram-2025-10-20-164911" src="https://github.com/user-attachments/assets/7ee78526-4084-46d7-af25-896f4c1c13d9" />
 
-O diagrama de sequência UML representa o fluxo completo de execução dos dois sistemas integrados do projeto, desde a inicialização até o encerramento da aplicação. Ele descreve a interação entre componentes, módulos e bancos de dados, evidenciando as etapas de autenticação, inicialização, operação, sincronização e finalização do sistema.
+<img width="2076" height="1155" alt="mermaid-diagram-2025-10-25-190112" src="https://github.com/user-attachments/assets/3d916db4-8fb3-4c89-b188-5f63a24e7cc3" />
 
-O processo inicia na **fase de autenticação**, quando o usuário executa o arquivo `main.py`, responsável por criar a tela de login (`LoginScreen`). Nesse momento, o sistema se conecta ao banco de dados de usuários (`users.db`) e verifica a existência do administrador padrão, criando-o automaticamente caso não exista. O usuário insere suas credenciais, que são validadas por meio de hash SHA256. Em caso de sucesso, a conexão com o banco de usuários é encerrada e as informações do usuário autenticado são repassadas para a aplicação principal.
+O diagrama de sequência UML representa o fluxo completo de execução do sistema de controle de estoque, desde o login do usuário até o encerramento da aplicação. Ele envolve diversos atores e componentes, como o **Usuário**, a **LoginScreen** (tela de autenticação), o banco de dados **users.db** (responsável pelas credenciais), a aplicação principal **EstoqueApp**, o banco **estoque_orcamento.db** (onde ficam os dados de estoque, clientes e contratos) e as **Abas do Sistema**, que compõem a interface modular da aplicação.
 
-Na **fase de inicialização do sistema de estoque**, a aplicação principal (`EstoqueApp`) é instanciada, conectando-se ao banco de dados principal (`estoque_orcamento.db`). Em seguida, cria as tabelas necessárias e inicializa todas as abas do sistema — Estoque, Clientes, Orçamento, Contratos, Relatórios e Configurações —, carregando e exibindo os dados iniciais de cada módulo diretamente na interface.
+Na **fase de autenticação**, o usuário inicia a aplicação e acessa a tela de login. O sistema conecta-se ao banco `users.db`, criando a tabela de usuários e um administrador padrão, caso seja a primeira execução. O usuário insere suas credenciais, que são validadas por meio de hash SHA-256. Se estiverem corretas, as informações são encaminhadas para a aplicação principal.
 
-Durante a **fase de operações de negócio**, o diagrama destaca três fluxos principais. No fluxo de **gestão de estoque**, o usuário pode adicionar ou editar itens, que são imediatamente salvos no banco de dados e atualizados na interface. No fluxo de **geração de contratos**, o usuário monta um orçamento, adiciona itens a uma lista temporária (`orcamento_atual[]`) e, ao finalizar, o contrato é salvo no banco e exportado em formato PDF. Já no fluxo de **controle financeiro**, o módulo `FinanceiroApp` permite criar eventos, registrar dívidas e marcar pagamentos. Quando uma dívida é quitada, o sistema lança automaticamente uma despesa no fluxo de caixa e atualiza o relatório Excel correspondente.
+Durante a **inicialização da aplicação principal**, a tela de login é encerrada e destruída, e o sistema instancia a aplicação **EstoqueApp** com os dados do usuário logado. Em seguida, o sistema conecta-se ao banco `estoque_orcamento.db`, criando ou verificando as tabelas necessárias (estoque, clientes, contratos e contrato_itens).
 
-A **fase de sincronização e relatórios** ocorre de forma contínua, com todas as operações financeiras gerando atualizações automáticas no dashboard. O sistema recalcula receitas, despesas e saldos, além de regenerar gráficos e atualizar os relatórios Excel em tempo real. Esses relatórios possuem formatação profissional, com cores condicionais e totalizadores que garantem uma visão financeira completa.
+Na **criação da interface**, o sistema constrói um notebook com abas modulares. Cada aba é criada por uma função específica: Estoque (itens), Clientes (cadastro), Orçamento (pedidos), Contratos (gestão de contratos), Relatórios (visualização de dados) e Configurações (acesso restrito a administradores).
 
-Por fim, na **fase de encerramento**, o sistema solicita confirmação do usuário antes de fechar, encerrando todas as conexões com os bancos de dados e destruindo as janelas de forma controlada. Esse processo assegura a integridade dos dados e garante o desligamento seguro da aplicação. O diagrama, portanto, evidencia um fluxo ordenado e integrado entre autenticação, operações de negócio e persistência de dados, refletindo a robustez e a coerência do funcionamento do sistema.
+Durante o **carregamento de dados**, o sistema busca informações do banco e preenche as interfaces com as listas de itens, clientes e contratos, exibindo tudo em suas respectivas tabelas (TreeViews).
+
+Na **operação normal**, o usuário interage com as abas, realizando operações de criação, leitura, atualização e exclusão diretamente no banco `estoque_orcamento.db`. As alterações são refletidas em tempo real na interface, com controle de permissões diferenciando administradores de usuários comuns.
+
+Por fim, no **encerramento**, ao fechar a aplicação, o sistema solicita confirmação do usuário. Confirmado o fechamento, as conexões com o banco são encerradas corretamente e a aplicação é finalizada.
+
+O sistema apresenta importantes características: **separação de responsabilidades**, utilizando bancos distintos para autenticação e dados de negócio; **arquitetura modular**, que facilita manutenção e expansão; **segurança**, com senhas armazenadas por hash; **persistência**, com salvamento automático das alterações; e **controle de acesso**, diferenciando as permissões de cada tipo de usuário.
+
 
 
 ### 6.5 Diagrama de Estado  
