@@ -170,23 +170,27 @@ Resumo e imagem do diagrama.
 
 ### 6.4 Diagrama de Sequência  
 
-<img width="2076" height="1155" alt="mermaid-diagram-2025-10-25-190112" src="https://github.com/user-attachments/assets/3d916db4-8fb3-4c89-b188-5f63a24e7cc3" />
+<img width="4910" height="7372" alt="Mermaid Chart - Create complex, visual diagrams with text -2025-10-26-022643" src="https://github.com/user-attachments/assets/349ad9d0-ecc6-44a7-8c1a-0fcfa3129aa9" />
 
-O diagrama de sequência UML representa o fluxo completo de execução do sistema de controle de estoque, desde o login do usuário até o encerramento da aplicação. Ele envolve diversos atores e componentes, como o **Usuário**, a **LoginScreen** (tela de autenticação), o banco de dados **users.db** (responsável pelas credenciais), a aplicação principal **EstoqueApp**, o banco **estoque_orcamento.db** (onde ficam os dados de estoque, clientes e contratos) e as **Abas do Sistema**, que compõem a interface modular da aplicação.
 
-Na **fase de autenticação**, o usuário inicia a aplicação e acessa a tela de login. O sistema conecta-se ao banco `users.db`, criando a tabela de usuários e um administrador padrão, caso seja a primeira execução. O usuário insere suas credenciais, que são validadas por meio de hash SHA-256. Se estiverem corretas, as informações são encaminhadas para a aplicação principal.
+O diagrama de sequência UML descreve detalhadamente o funcionamento de um **sistema completo de gestão empresarial** desenvolvido em Python, que integra módulos de controle de estoque, relacionamento com clientes, geração de orçamentos e contratos, além de um sistema financeiro avançado para controle de transações, dívidas e dividendos.
 
-Durante a **inicialização da aplicação principal**, a tela de login é encerrada e destruída, e o sistema instancia a aplicação **EstoqueApp** com os dados do usuário logado. Em seguida, o sistema conecta-se ao banco `estoque_orcamento.db`, criando ou verificando as tabelas necessárias (estoque, clientes, contratos e contrato_itens).
+O sistema é estruturado em três bancos de dados SQLite independentes: **users.db**, responsável por armazenar credenciais de usuários com criptografia SHA256; **estoque_orcamento.db**, que centraliza informações de produtos, clientes, orçamentos e contratos; e **financeiro.db**, destinado à gestão de transações e eventos financeiros. Seus principais componentes incluem o arquivo **main.py** (ponto de entrada da aplicação), as interfaces **LoginScreen**, **EstoqueApp** e **FinanceiroApp**, e um sistema de relatórios para exportação de arquivos Excel e PDF.
 
-Na **criação da interface**, o sistema constrói um notebook com abas modulares. Cada aba é criada por uma função específica: Estoque (itens), Clientes (cadastro), Orçamento (pedidos), Contratos (gestão de contratos), Relatórios (visualização de dados) e Configurações (acesso restrito a administradores).
+Durante a **inicialização**, o sistema executa uma verificação do banco de usuários, criando automaticamente um administrador padrão caso ele não exista. Em seguida, a tela de login é exibida e, após a autenticação bem-sucedida, a aplicação principal é carregada com todas as abas funcionais — Estoque, Clientes, Orçamentos, Contratos, Relatórios e Configurações — conectando-se aos bancos de dados correspondentes e carregando os dados iniciais. Caso o login falhe, o sistema exibe uma mensagem de erro e mantém a tela ativa.
 
-Durante o **carregamento de dados**, o sistema busca informações do banco e preenche as interfaces com as listas de itens, clientes e contratos, exibindo tudo em suas respectivas tabelas (TreeViews).
+O **módulo de estoque** permite operações completas de cadastro, edição e exclusão de produtos. Quando um novo item é adicionado, o sistema executa a inserção no banco, atualiza os dados e reflete as alterações em tempo real na interface.
 
-Na **operação normal**, o usuário interage com as abas, realizando operações de criação, leitura, atualização e exclusão diretamente no banco `estoque_orcamento.db`. As alterações são refletidas em tempo real na interface, com controle de permissões diferenciando administradores de usuários comuns.
+O **fluxo de orçamentos e contratos** é um dos mais complexos do sistema. O usuário pode montar orçamentos selecionando produtos e quantidades, com cálculos automáticos de valores, descontos e impostos. Após a finalização, o orçamento pode ser convertido em contrato, gerando registros no banco de dados, um documento PDF formatado e armazenando permanentemente as informações.
 
-Por fim, no **encerramento**, ao fechar a aplicação, o sistema solicita confirmação do usuário. Confirmado o fechamento, as conexões com o banco são encerradas corretamente e a aplicação é finalizada.
+O **sistema financeiro** funciona de forma semi-independente. Ao ser aberto, ele carrega os dados de transações e dividendos em DataFrames do pandas, exibindo um dashboard com gráficos e indicadores. O usuário pode criar novos eventos financeiros, registrar dívidas e pagamentos, e gerar relatórios em Excel. Sempre que uma operação é concluída, o sistema atualiza automaticamente o saldo, o fluxo de caixa e os indicadores do painel.
 
-O sistema apresenta importantes características: **separação de responsabilidades**, utilizando bancos distintos para autenticação e dados de negócio; **arquitetura modular**, que facilita manutenção e expansão; **segurança**, com senhas armazenadas por hash; **persistência**, com salvamento automático das alterações; e **controle de acesso**, diferenciando as permissões de cada tipo de usuário.
+No **encerramento da aplicação**, o sistema solicita confirmação do usuário antes de fechar. Caso confirmado, encerra as conexões com os bancos de dados e libera todos os recursos utilizados, garantindo um desligamento seguro e sem perda de dados.
+
+Entre suas **características técnicas**, destacam-se a segurança com uso de hash SHA256, validação de credenciais, integridade de dados por meio de transações SQL e relacionamentos entre tabelas, além de sincronização constante entre banco e interface. O sistema oferece feedback visual imediato, atualização automática de informações e relatórios exportáveis. Sua **arquitetura modular** separa claramente as camadas de dados, lógica e apresentação, permitindo expansões sem comprometer módulos existentes.
+
+Em suma, o sistema representa uma solução empresarial robusta e integrada, ideal para pequenas e médias empresas que desejam gerenciar de forma eficiente seus processos comerciais, financeiros e administrativos em um único ambiente centralizado.
+
 
 
 
